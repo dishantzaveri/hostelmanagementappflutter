@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
 import 'package:easydorm/constants.dart';
 import 'package:easydorm/screens/login_screen.dart';
@@ -136,6 +136,7 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
+  String dropDownValue = "Maharashtra";
   Widget _buildStatesDrpDown() {
     List<String> states = [
       "Andaman and Nicobar Islands",
@@ -175,7 +176,6 @@ class _SignUpState extends State<SignUp> {
       "Uttarakhand",
       "West Bengal"
     ];
-    String dropDownValue = "Maharashtra";
     return Container(
       width: screen().width,
       child: Column(
@@ -193,7 +193,7 @@ class _SignUpState extends State<SignUp> {
               canvasColor: primaryPurple,
             ),
             child: Container(
-              width: 0.65*screen().width,
+              width: 0.65 * screen().width,
               child: DropdownButton(
                 value: dropDownValue,
                 items: states.map<DropdownMenuItem<String>>((String value) {

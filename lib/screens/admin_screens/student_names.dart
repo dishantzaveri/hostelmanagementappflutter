@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
 import 'package:easydorm/constants.dart';
 import 'package:flutter/material.dart';
@@ -38,17 +38,26 @@ class _StudentDataState extends State<StudentData> {
           Container(
               height: screen().height,
               width: screen().width,
-              
               child: ListView.builder(
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: TextButton(
+                    leading: TextButton(
                       style: TextButton.styleFrom(primary: whiteColor),
-                      child: Text(
-                        "Prathmesh Ghatol",
-                        style: TextStyle(color: greyColor),
-                      ),
+                      child: Text("Prathmesh Ghatol",
+                          style: TextStyle(
+                              color: greyColor,
+                              fontFamily: "Oxygen",
+                              fontSize: 15)),
                       onPressed: () {},
+                    ),
+                    trailing: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: primaryPurple,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              side: BorderSide(color: primaryPurple))),
+                      onPressed: () {},
+                      child: Icon(Icons.arrow_forward_ios_rounded),
                     ),
                   );
                 },

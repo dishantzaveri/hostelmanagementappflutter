@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
 import 'package:easydorm/screens/admin_screens/main_admin.dart';
 import 'package:easydorm/screens/admin_screens/student_names.dart';
@@ -39,8 +39,7 @@ class _LoginState extends State<Login> {
               decoration: InputDecoration(
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.only(top: 14),
-                  prefixIcon:
-                      Icon(Icons.email_outlined, color: Colors.white),
+                  prefixIcon: Icon(Icons.email_outlined, color: Colors.white),
                   hintText: "Enter your Email",
                   hintStyle: TextStyle(
                       fontFamily: "Oxygen", fontSize: 15, color: whiteColor))),
@@ -84,8 +83,8 @@ class _LoginState extends State<Login> {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {
-          // Navigator.push(
-          //     context, MaterialPageRoute(builder: (context) => StudentData()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => StudentData()));
         },
         style: ButtonStyle(
             padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
@@ -112,33 +111,42 @@ class _LoginState extends State<Login> {
   }
 
   Widget _buildSignupBtn() {
-    return GestureDetector(
-      onTap: () {Navigator.push(
-              context, MaterialPageRoute(builder: (context) => SignUp()));},
-      child: RichText(
-        text: TextSpan(
-          children: [
-            TextSpan(
-              text: 'Don\'t have an Account? ',
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: "Oxygen",
-                fontSize: 13.0,
-                fontWeight: FontWeight.w400,
+    if (dropDownValue == "Student") {
+      return GestureDetector(
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => SignUp()));
+        },
+        child: RichText(
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: 'Don\'t have an Account? ',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: "Oxygen",
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
-            ),
-            TextSpan(
-              text: 'Sign Up',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 13.0,
-                fontWeight: FontWeight.bold,
+              TextSpan(
+                text: 'Sign Up',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    } else {
+      return Text(
+        ";)",
+        style: TextStyle(color: whiteColor),
+      );
+    }
   }
 
   @override
