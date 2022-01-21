@@ -102,7 +102,8 @@ class _SignUpState extends State<SignUp> {
       ],
     );
   }
-Widget _buildSignupBtn() {
+
+  Widget _buildSignupBtn() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
@@ -119,7 +120,7 @@ Widget _buildSignupBtn() {
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
-                    side: BorderSide(color: Colors.red))),
+                    side: BorderSide(color: primaryPurple))),
             backgroundColor: MaterialStateProperty.all(Colors.white)),
         child: Text(
           'SIGN UP',
@@ -134,9 +135,95 @@ Widget _buildSignupBtn() {
       ),
     );
   }
-// Widget _buildStatesDrpDown(){
-// List<String> states= ["Andra Pradesh","Arunachal Pradesh","Assam","Bihar"];
-// }
+
+  Widget _buildStatesDrpDown() {
+    List<String> states = [
+      "Andaman and Nicobar Islands",
+      "Andra Pradesh",
+      "Arunachal Pradesh",
+      "Assam",
+      "Bihar",
+      "Chandigarh",
+      "Chhattisgarh",
+      "Dadra and Nagar Haveli",
+      "Daman and Diu",
+      "Delhi",
+      "Goa",
+      "Gujarat",
+      "Haryana",
+      "Himachal Pradesh",
+      "Jammu and Kashmir",
+      "Jharkhand",
+      "Karnataka",
+      "Kerala",
+      "Lakshadweep",
+      "Madhya Pradesh",
+      "Maharashtra",
+      "Manipur",
+      "Meghalaya",
+      "Mizoram",
+      "Nagaland",
+      "Odisha",
+      "Pondicherry",
+      "Punjab",
+      "Rajasthan",
+      "Sikkim",
+      "Tamil Nadu",
+      "Telangana",
+      "Tripura",
+      "Uttar Pradesh",
+      "Uttarakhand",
+      "West Bengal"
+    ];
+    String dropDownValue = "Maharashtra";
+    return Container(
+      width: screen().width,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Select region",
+              style: TextStyle(
+                color: whiteColor,
+                fontFamily: "Oxygen",
+                fontSize: 15,
+              )),
+          SizedBox(height: 10),
+          Theme(
+            data: Theme.of(context).copyWith(
+              canvasColor: primaryPurple,
+            ),
+            child: Container(
+              width: 0.65*screen().width,
+              child: DropdownButton(
+                value: dropDownValue,
+                items: states.map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value,
+                        style: TextStyle(
+                          color: whiteColor,
+                          fontFamily: "Oxygen",
+                          fontSize: 17,
+                        )),
+                  );
+                }).toList(),
+                icon: Icon(
+                  // Add this
+                  Icons.arrow_drop_down, // Add this
+                  color: Colors.white, // Add this
+                ),
+                onChanged: (dynamic value) {
+                  dropDownValue = value;
+                  setState(() {});
+                },
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -150,7 +237,7 @@ Widget _buildSignupBtn() {
             fontSize: 20,
           ),
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: transparent,
       ),
       body: Stack(
         children: [
@@ -186,6 +273,8 @@ Widget _buildSignupBtn() {
                     _buildEmail(),
                     SizedBox(height: 15),
                     _buildPass(),
+                    SizedBox(height: 15),
+                    _buildStatesDrpDown(),
                     _buildSignupBtn()
                   ],
                 ),

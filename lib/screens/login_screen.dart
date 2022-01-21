@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:easydorm/screens/admin_screen.dart';
+import 'package:easydorm/screens/admin_screens/main_admin.dart';
+import 'package:easydorm/screens/admin_screens/student_names.dart';
 import 'package:easydorm/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:easydorm/constants.dart';
@@ -83,8 +84,8 @@ class _LoginState extends State<Login> {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Admin()));
+          // Navigator.push(
+          //     context, MaterialPageRoute(builder: (context) => StudentData()));
         },
         style: ButtonStyle(
             padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
@@ -94,7 +95,7 @@ class _LoginState extends State<Login> {
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
-                    side: BorderSide(color: Colors.red))),
+                    side: BorderSide(color: primaryPurple))),
             backgroundColor: MaterialStateProperty.all(Colors.white)),
         child: Text(
           'LOGIN',
@@ -153,7 +154,7 @@ class _LoginState extends State<Login> {
             fontSize: 20,
           ),
         ),
-        backgroundColor: Color(0x00ffffff),
+        backgroundColor: transparent,
       ),
       body: Stack(
         children: [
