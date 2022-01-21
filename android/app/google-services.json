@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "49371331420",
+    "project_id": "easydorm-4de5e",
+    "storage_bucket": "easydorm-4de5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49371331420:android:86eb208d82868b02f61f99",
+        "android_client_info": {
+          "package_name": "com.example.easydorm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49371331420-b4irldmfl4gs66fqcioo5ivo22vkqus3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCO-5ib6dDD53GJLf5A1EzxdEg0dStjTUo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "49371331420-b4irldmfl4gs66fqcioo5ivo22vkqus3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
