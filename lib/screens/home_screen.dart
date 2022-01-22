@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easydorm/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'home_page.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -19,8 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
           onPressed: () {
             FirebaseAuth.instance.signOut().then((value) {
               print("Signed Out");
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => SignInScreen()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HomePage()));
             });
           },
         ),

@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:easydorm/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:easydorm/screens/signin_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,8 +30,8 @@ class MyApp extends StatelessWidget {
             ),
           ),
           splashIconSize: double.maxFinite,
-          nextScreen: const SignInScreen(),
-          duration: 1,
+          nextScreen: HomePage(),
+          duration: 100,
           backgroundColor: Colors.white,
         ));
   }
