@@ -1,0 +1,68 @@
+import 'package:easydorm/constants.dart';
+import 'package:easydorm/screens/signin_screen.dart';
+import 'package:easydorm/student_files/complaints.dart';
+import 'package:flutter/material.dart';
+
+class Navigation extends StatefulWidget {
+  const Navigation({Key? key}) : super(key: key);
+
+  @override
+  State<Navigation> createState() => _NavigationState();
+}
+
+class _NavigationState extends State<Navigation> {
+  Widget buildMenuItem(
+      {required String text, VoidCallback? onClicked, required IconData icon}) {
+    final color = primaryPurple;
+    return ListTile(
+        leading: Icon(
+          icon,
+          color: color,
+        ),
+        title: Text(
+          text,
+          style: TextStyle(
+            color: color,
+            fontFamily: "Oxygen",
+            fontSize: 18,
+          ),
+        ),
+        onTap: onClicked);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: Container(
+        color: whiteColor,
+        child: ListView(
+          children: [
+            buildMenuItem(
+              text: 'Complaints',
+              icon: Icons.edit,
+              onClicked: () => selectedItem(context, 1),
+            ),
+            buildMenuItem(text: 'Sign Out', icon: Icons.exit_to_app,onClicked: () => selectedItem(context, 0),)
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+selectedItem(BuildContext context, int i) {
+  switch (i) {
+    case 0:
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) =>  SignInScreen()),
+      );
+      break;
+    case 1:
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) =>  Complaint()),
+      );
+      break;
+  }
+}

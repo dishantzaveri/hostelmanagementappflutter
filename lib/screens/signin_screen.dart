@@ -1,3 +1,4 @@
+import 'package:easydorm/screens/student_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easydorm/reusable_widgets/reusable_widget.dart';
 import 'package:easydorm/screens/home_screen.dart';
@@ -64,7 +65,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           password: _passwordTextController.text)
                       .then((value) {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                        MaterialPageRoute(builder: (context) => Student()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
                   });
