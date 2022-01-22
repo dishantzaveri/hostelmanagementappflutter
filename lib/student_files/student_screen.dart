@@ -175,7 +175,7 @@ class _StudentState extends State<Student> {
           "Profile",
           style: TextStyle(
             fontFamily: "Oxygen",
-            fontSize: 27,
+            fontSize: 24,
           ),
         ),
         backgroundColor: primaryPurple,

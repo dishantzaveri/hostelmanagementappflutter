@@ -5,6 +5,7 @@ import 'package:easydorm/student_files/complaints.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../reach_us.dart';
 import 'home_page.dart';
 
 class Navigation extends StatefulWidget {
@@ -45,6 +46,12 @@ class _NavigationState extends State<Navigation> {
               text: 'Complaints',
               icon: Icons.edit,
               onClicked: () => selectedItem(context, 1),
+            ),
+            buildMenuItem(
+              text: 'Feedback',
+              icon: Icons.edit,
+              onClicked: () => Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (context) => ReachUs())),
             ),
             buildMenuItem(
               text: 'Sign Out', icon: Icons.exit_to_app,
