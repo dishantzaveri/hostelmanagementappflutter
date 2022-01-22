@@ -22,11 +22,11 @@ class MyApp extends StatelessWidget {
         home: AnimatedSplashScreen(
           splash: Container(
             padding: EdgeInsets.only(bottom: 25),
-            alignment: Alignment.bottomCenter,
+            alignment: Alignment.center,
             child: Image.asset(
-              "assets/google.png",
-              height: 150,
-              width: 150,
+              "assets/easydorms.png",
+              height: 200,
+              width: 200,
             ),
           ),
           splashIconSize: double.maxFinite,

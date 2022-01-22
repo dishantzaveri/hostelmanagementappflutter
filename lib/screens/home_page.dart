@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                       _selectedIndex == 0 ? Color(0xFF3CF7FB) : Colors.white),
             ),
             BottomNavigationBarItem(
-              title: Text('Admin',
+              title: Text('Warden',
                   style: TextStyle(
                       color: _selectedIndex == 1
                           ? Color(0xFF3CF7FB)
@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                       _selectedIndex == 1 ? Color(0xFF3CF7FB) : Colors.white),
             ),
             BottomNavigationBarItem(
-              title: Text('Warden',
+              title: Text('Admin',
                   style: TextStyle(
                       color: _selectedIndex == 2
                           ? Color(0xFF3CF7FB)
