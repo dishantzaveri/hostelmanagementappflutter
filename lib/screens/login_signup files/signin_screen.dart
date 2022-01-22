@@ -1,4 +1,4 @@
-import 'package:easydorm/screens/student_screen.dart';
+import 'package:easydorm/student_files/student_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easydorm/reusable_widgets/reusable_widget.dart';
 import 'package:easydorm/screens/home_screen.dart';

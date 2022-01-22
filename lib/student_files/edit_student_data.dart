@@ -19,6 +19,7 @@ class _EditPageState extends State<EditPage> {
   Size screen() {
     return MediaQuery.of(context).size;
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,47 +40,50 @@ class _EditPageState extends State<EditPage> {
         SizedBox(
           height: 24,
         ),
-       Padding(padding: EdgeInsets.all(13),
-       child: Column(
-          children: [TextFieldWidget(
-            label: 'Full Name', text: user.name, onChanged: (name) {}),
+        Padding(
+          padding: EdgeInsets.all(13),
+          child: Column(children: [
+            TextFieldWidget(
+                label: 'Full Name', text: user.name, onChanged: (name) {}),
             SizedBox(
-          height: 24,
-        ),
-        TextFieldWidget(
-            label: 'Email', text: user.email, onChanged: (email) {}),
+              height: 24,
+            ),
+            TextFieldWidget(
+                label: 'Email', text: user.email, onChanged: (email) {}),
             SizedBox(
-          height: 24,
+              height: 24,
+            ),
+            // TextFieldWidget(
+            //     label: 'Room Number',
+            //     text: user.roomno,
+            //     onChanged: (roomno) {}),
+          ]),
         ),
-        TextFieldWidget(
-            label: 'Room Number', text: user.roomno, onChanged: (roomno) {})]),),
-     SizedBox(height: 20,),
-      Padding(
-        padding: EdgeInsets.symmetric(horizontal:  0.2*screen().width),
-        child: ElevatedButton.icon(
-                style: ButtonStyle(
-                    padding: MaterialStateProperty.all(
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 15)),
-                    backgroundColor: MaterialStateProperty.all(primaryPurple),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ))),
-                onPressed: () {},
-                icon: Icon(
-                  Icons.save,
-                  size: 20,
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 0.2 * screen().width),
+          child: ElevatedButton.icon(
+              style: ButtonStyle(
+                  padding: MaterialStateProperty.all(
+                      EdgeInsets.symmetric(horizontal: 20, vertical: 15)),
+                  backgroundColor: MaterialStateProperty.all(primaryPurple),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ))),
+              onPressed: () {},
+              icon: Icon(
+                Icons.save,
+                size: 20,
+              ),
+              label: Text(
+                'SAVE',
+                style: TextStyle(
+                  color: whiteColor,
+                  fontFamily: "Oxygen",
+                  fontSize: 18,
                 ),
-                label: Text(
-                  'SAVE',
-                  style: TextStyle(
-                    color: whiteColor,
-                    fontFamily: "Oxygen",
-                    fontSize: 18,
-                  ),
-                )),
-      ),
-     
+              )),
+        ),
       ]),
     );
   }

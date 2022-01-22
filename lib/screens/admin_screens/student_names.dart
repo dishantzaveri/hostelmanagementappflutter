@@ -1,6 +1,7 @@
 // // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
 import 'package:easydorm/constants.dart';
+import 'package:easydorm/screens/admin_screens/student_data.dart';
 import 'package:flutter/material.dart';
 
 class StudentName extends StatefulWidget {
@@ -48,7 +49,10 @@ class _StudentNameState extends State<StudentName> {
                               color: greyColor,
                               fontFamily: "Oxygen",
                               fontSize: 15)),
-                      onPressed: () {},
+                      onPressed: () {Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) =>  StudentData()),
+      );},
                     ),
                     trailing: ElevatedButton(
                       style: ElevatedButton.styleFrom(

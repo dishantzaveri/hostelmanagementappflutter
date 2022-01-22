@@ -1,3 +1,6 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:easydorm/screens/warden_screens/warden_students.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easydorm/reusable_widgets/reusable_widget.dart';
 import 'package:easydorm/screens/home_screen.dart';
@@ -6,7 +9,8 @@ import 'package:easydorm/screens/login_signup%20files/signup_screen.dart';
 import 'package:easydorm/utils/color_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:easydorm/constants.dart';
-import 'package:easydorm/screens/warden_screens/warden_students';
+import 'package:easydorm/screens/warden_screens/warden_students.dart';
+
 class WardenSignInScreen extends StatefulWidget {
   const WardenSignInScreen({Key? key}) : super(key: key);
 
@@ -63,8 +67,10 @@ class _WardenSignInScreenState extends State<WardenSignInScreen> {
                           email: _emailTextController.text,
                           password: _passwordTextController.text)
                       .then((value) {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => WardenStudent()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WardenStudent()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
                   });

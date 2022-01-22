@@ -2,6 +2,7 @@
 
 import 'package:easydorm/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:easydorm/screens/warden_screens/warden_student_edit';
 
 class WardenStudent extends StatefulWidget {
   const WardenStudent({Key? key}) : super(key: key);
@@ -48,7 +49,12 @@ class _WardenStudentState extends State<WardenStudent> {
                               color: greyColor,
                               fontFamily: "Oxygen",
                               fontSize: 15)),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => WeditPage()));
+                      },
                     ),
                     trailing: ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -56,7 +62,12 @@ class _WardenStudentState extends State<WardenStudent> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                               side: BorderSide(color: primaryPurple))),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => WeditPage()),
+                        );
+                      },
                       child: Icon(Icons.arrow_forward_ios_rounded),
                     ),
                   );
