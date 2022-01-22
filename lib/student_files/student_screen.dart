@@ -20,142 +20,147 @@ class Student extends StatefulWidget {
 
 class _StudentState extends State<Student> {
   Widget buildName(MyUser user) => Column(
-      children: [
-        Text(
-          user.name,
-          style: TextStyle(
-            color: primaryPurple,
-            fontWeight: FontWeight.bold,
-            fontFamily: "Oxygen",
-            fontSize: 30,
+        children: [
+          Text(
+            user.name,
+            style: TextStyle(
+              color: primaryPurple,
+              fontWeight: FontWeight.bold,
+              fontFamily: "Oxygen",
+              fontSize: 30,
+            ),
           ),
-        ),
-        SizedBox(
-          height: 7,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Room Number:',
-              style: TextStyle(
-                fontWeight: FontWeight.w300,
-                color: greyColor,
-                fontFamily: "Oxygen",
-                fontSize: 20,
-              ),
-            ),
-            SizedBox(
-              width: 4,
-            ),
-            Text(
-              user.roomno,
-              style: TextStyle(
-                fontWeight: FontWeight.w300,
-                color: greyColor,
-                fontFamily: "Oxygen",
-                fontSize: 20,
-              ),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          user.email,
-          style: TextStyle(
-            color: greyColor,
-            fontFamily: "Oxygen",
-            fontSize: 15,
+          SizedBox(
+            height: 7,
           ),
-        ),
-        SizedBox(
-          height: 40,
-        ),
-        ElevatedButton.icon(
-            style: ButtonStyle(
-                padding: MaterialStateProperty.all(EdgeInsets.all(15)),
-                backgroundColor: MaterialStateProperty.all(primaryPurple),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ))),
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) =>  Payment()),
-                );
-            },
-            icon: Icon(
-              Icons.payment,
-              size: 20,
-            ),
-            label: Text(
-              'Hostel Payment',
-              style: TextStyle(
-                color: whiteColor,
-                fontFamily: "Oxygen",
-                fontSize: 18,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Room Number:',
+                style: TextStyle(
+                  fontWeight: FontWeight.w300,
+                  color: greyColor,
+                  fontFamily: "Oxygen",
+                  fontSize: 20,
+                ),
               ),
-            )),
-        SizedBox(
-          height: 20,
-        ),
-        ElevatedButton.icon(
-            style: ButtonStyle(
-                padding: MaterialStateProperty.all(
-                    EdgeInsets.symmetric(horizontal: 31, vertical: 15)),
-                backgroundColor: MaterialStateProperty.all(primaryPurple),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ))),
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) =>  Food()),
-                );
-            },
-            icon: Icon(
-              Icons.food_bank,
-              size: 20,
-            ),
-            label: Text(
-              'Food Billing',
-              style: TextStyle(
-                color: whiteColor,
-                fontFamily: "Oxygen",
-                fontSize: 18,
+              SizedBox(
+                width: 4,
               ),
-            )),
-        SizedBox(
-          height: 20,
-        ),
-        ElevatedButton.icon(
-            style: ButtonStyle(
-                padding: MaterialStateProperty.all(
-                    EdgeInsets.symmetric(horizontal: 36, vertical: 15)),
-                backgroundColor: MaterialStateProperty.all(primaryPurple),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ))),
-           onPressed: () { Navigator.push(context,
+              Text(
+                user.roomno,
+                style: TextStyle(
+                  fontWeight: FontWeight.w300,
+                  color: greyColor,
+                  fontFamily: "Oxygen",
+                  fontSize: 20,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            user.email,
+            style: TextStyle(
+              color: greyColor,
+              fontFamily: "Oxygen",
+              fontSize: 15,
+            ),
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          ElevatedButton.icon(
+              style: ButtonStyle(
+                  padding: MaterialStateProperty.all(EdgeInsets.all(15)),
+                  backgroundColor: MaterialStateProperty.all(primaryPurple),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ))),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Payment()),
+                );
+              },
+              icon: Icon(
+                Icons.payment,
+                size: 20,
+              ),
+              label: Text(
+                'Hostel Payment',
+                style: TextStyle(
+                  color: whiteColor,
+                  fontFamily: "Oxygen",
+                  fontSize: 18,
+                ),
+              )),
+          SizedBox(
+            height: 20,
+          ),
+          ElevatedButton.icon(
+              style: ButtonStyle(
+                  padding: MaterialStateProperty.all(
+                      EdgeInsets.symmetric(horizontal: 31, vertical: 15)),
+                  backgroundColor: MaterialStateProperty.all(primaryPurple),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ))),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Food()),
+                );
+              },
+              icon: Icon(
+                Icons.food_bank,
+                size: 20,
+              ),
+              label: Text(
+                'Food Billing',
+                style: TextStyle(
+                  color: whiteColor,
+                  fontFamily: "Oxygen",
+                  fontSize: 18,
+                ),
+              )),
+          SizedBox(
+            height: 20,
+          ),
+          ElevatedButton.icon(
+              style: ButtonStyle(
+                  padding: MaterialStateProperty.all(
+                      EdgeInsets.symmetric(horizontal: 36, vertical: 15)),
+                  backgroundColor: MaterialStateProperty.all(primaryPurple),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ))),
+              onPressed: () {
+                Navigator.push(
+                  context,
                   MaterialPageRoute(builder: (context) => const CheckIn()),
-                );},
-            icon: Icon(
-              Icons.calendar_view_day_sharp,
-              size: 20,
-            ),
-            label: Text(
-              'Attendance',
-              style: TextStyle(
-                color: whiteColor,
-                fontFamily: "Oxygen",
-                fontSize: 18,
+                );
+              },
+              icon: Icon(
+                Icons.calendar_view_day_sharp,
+                size: 20,
               ),
-            )),
-      ],
-    );
+              label: Text(
+                'Attendance',
+                style: TextStyle(
+                  color: whiteColor,
+                  fontFamily: "Oxygen",
+                  fontSize: 18,
+                ),
+              )),
+        ],
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -165,8 +170,15 @@ class _StudentState extends State<Student> {
       backgroundColor: whiteColor,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Profile",
+          style: TextStyle(
+            fontFamily: "Oxygen",
+            fontSize: 27,
+          ),
+        ),
         backgroundColor: primaryPurple,
-      
       ),
       body: ListView(
         physics: BouncingScrollPhysics(),
@@ -192,4 +204,3 @@ class _StudentState extends State<Student> {
     );
   }
 }
-
