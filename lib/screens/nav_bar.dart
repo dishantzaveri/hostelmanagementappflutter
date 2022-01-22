@@ -2,7 +2,10 @@ import 'package:easydorm/constants.dart';
 import 'package:easydorm/screens/login_signup%20files/signin_screen.dart';
 import 'package:easydorm/student_files/complaints.dart';
 import 'package:easydorm/student_files/complaints.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import 'home_page.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({Key? key}) : super(key: key);
@@ -43,7 +46,17 @@ class _NavigationState extends State<Navigation> {
               icon: Icons.edit,
               onClicked: () => selectedItem(context, 1),
             ),
-            buildMenuItem(text: 'Sign Out', icon: Icons.exit_to_app,onClicked: () => selectedItem(context, 0),)
+            buildMenuItem(
+              text: 'Sign Out', icon: Icons.exit_to_app,
+              onClicked: () => selectedItem(context, 0),
+              //  onPressed: () {
+              //   FirebaseAuth.instance.signOut().then((value) {
+              //     print("Signed Out");
+              //     Navigator.push(
+              //         context, MaterialPageRoute(builder: (context) => HomePage()));
+              //   });
+              // },
+            )
           ],
         ),
       ),
@@ -54,15 +67,16 @@ class _NavigationState extends State<Navigation> {
 selectedItem(BuildContext context, int i) {
   switch (i) {
     case 0:
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) =>  SignInScreen()),
-      );
+      FirebaseAuth.instance.signOut().then((value) {
+        print("Signed Out");
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomePage()));
+      });
       break;
     case 1:
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) =>  Complaint()),
+        MaterialPageRoute(builder: (context) => Complaint()),
       );
       break;
   }
