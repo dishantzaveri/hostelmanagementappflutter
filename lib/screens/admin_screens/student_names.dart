@@ -4,6 +4,8 @@ import 'package:easydorm/constants.dart';
 import 'package:easydorm/screens/admin_screens/student_data.dart';
 import 'package:flutter/material.dart';
 
+import '../nav_bar.dart';
+
 class StudentName extends StatefulWidget {
   const StudentName({Key? key}) : super(key: key);
 
@@ -19,6 +21,9 @@ class _StudentNameState extends State<StudentName> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: Navigation(),
+        backgroundColor: whiteColor,
+        extendBodyBehindAppBar: true,
         appBar: AppBar(
           centerTitle: true,
           title: Text(
@@ -49,10 +54,13 @@ class _StudentNameState extends State<StudentName> {
                               color: greyColor,
                               fontFamily: "Oxygen",
                               fontSize: 15)),
-                      onPressed: () {Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) =>  StudentData()),
-      );},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => StudentData()),
+                        );
+                      },
                     ),
                     trailing: ElevatedButton(
                       style: ElevatedButton.styleFrom(

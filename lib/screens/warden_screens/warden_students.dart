@@ -4,6 +4,8 @@ import 'package:easydorm/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:easydorm/screens/warden_screens/warden_student_edit';
 
+import '../nav_bar.dart';
+
 class WardenStudent extends StatefulWidget {
   const WardenStudent({Key? key}) : super(key: key);
 
@@ -19,6 +21,9 @@ class _WardenStudentState extends State<WardenStudent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: Navigation(),
+        backgroundColor: whiteColor,
+        extendBodyBehindAppBar: true,
         appBar: AppBar(
           centerTitle: true,
           title: Text(
