@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:easydorm/constants.dart';
 import 'package:easydorm/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
@@ -31,8 +32,8 @@ class MyApp extends StatelessWidget {
           ),
           splashIconSize: double.maxFinite,
           nextScreen: HomePage(),
-          duration: 100,
-          backgroundColor: Colors.white,
+          duration: 500,
+          backgroundColor: primaryPurple,
         ));
   }
 }

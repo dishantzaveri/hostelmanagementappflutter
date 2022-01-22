@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:easydorm/student_files/profile.dart';
 
 class WeditPage extends StatefulWidget {
-  const WeditPage({Key? key}) : super(key: key);
+  final studentId;
+  const WeditPage({Key? key, required this.studentId}) : super(key: key);
 
   @override
   _WeditPageState createState() => _WeditPageState();

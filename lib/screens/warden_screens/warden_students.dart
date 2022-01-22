@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easydorm/constants.dart';
+import 'package:easydorm/screens/admin_screens/student_data.dart';
 import 'package:flutter/material.dart';
-import 'package:easydorm/screens/warden_screens/warden_student_edit';
+import 'package:easydorm/screens/warden_screens/warden_student_edit.dart';
 
 import '../nav_bar.dart';
 
@@ -17,7 +19,8 @@ class _WardenStudentState extends State<WardenStudent> {
   Size screen() {
     return MediaQuery.of(context).size;
   }
-
+final Stream<QuerySnapshot> students =
+      FirebaseFirestore.instance.collection('Students').snapshots();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,20 +39,33 @@ class _WardenStudentState extends State<WardenStudent> {
           backgroundColor: primaryPurple,
         ),
         body: Stack(children: [
-          Container(
-            height: screen().height,
-            width: screen().width,
-            decoration: BoxDecoration(color: whiteColor),
-          ),
-          Container(
-              height: screen().height,
-              width: screen().width,
-              child: ListView.builder(
+        Container(
+          height: screen().height,
+          width: screen().width,
+          decoration: BoxDecoration(color: whiteColor),
+        ),
+        Container(
+          height: screen().height,
+          width: screen().width,
+          child: StreamBuilder<QuerySnapshot>(
+            stream: students,
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (snapshot.hasError) {
+                return Text("Something went Wrong.");
+              }
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Text("Loading.");
+              }
+              final data = snapshot.requireData;
+              return ListView.builder(
+                shrinkWrap: true,
                 itemBuilder: (context, index) {
+                  final studentIndex = index;
                   return ListTile(
                     leading: TextButton(
                       style: TextButton.styleFrom(primary: whiteColor),
-                      child: Text("Prathmesh Ghatol",
+                      child: Text("${data.docs[index]['Name']}",
                           style: TextStyle(
                               color: greyColor,
                               fontFamily: "Oxygen",
@@ -58,7 +74,7 @@ class _WardenStudentState extends State<WardenStudent> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => WeditPage()));
+                                builder: (context) => StudentData(studentIndex: studentIndex)));
                       },
                     ),
                     trailing: ElevatedButton(
@@ -70,15 +86,22 @@ class _WardenStudentState extends State<WardenStudent> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => WeditPage()),
+                          MaterialPageRoute(
+                              builder: (context) => WeditPage(
+                                    studentId: studentIndex,
+                                  )),
                         );
                       },
-                      child: Icon(Icons.arrow_forward_ios_rounded),
+                      child: Icon(Icons.edit),
                     ),
                   );
                 },
-                itemCount: 20,
-              ))
-        ]));
+                itemCount: data.size,
+              );
+            },
+          ),
+        )
+      ]),
+    );
   }
 }

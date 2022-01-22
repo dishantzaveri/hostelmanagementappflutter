@@ -1,7 +1,9 @@
 // // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easydorm/constants.dart';
 import 'package:easydorm/screens/admin_screens/student_data.dart';
+import 'package:easydorm/screens/warden_screens/warden_student_edit.dart';
 import 'package:flutter/material.dart';
 
 import '../nav_bar.dart';
@@ -17,7 +19,8 @@ class _StudentNameState extends State<StudentName> {
   Size screen() {
     return MediaQuery.of(context).size;
   }
-
+final Stream<QuerySnapshot> students =
+      FirebaseFirestore.instance.collection('Students').snapshots();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,39 +45,63 @@ class _StudentNameState extends State<StudentName> {
             decoration: BoxDecoration(color: whiteColor),
           ),
           Container(
-              height: screen().height,
-              width: screen().width,
-              child: ListView.builder(
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: TextButton(
-                      style: TextButton.styleFrom(primary: whiteColor),
-                      child: Text("Prathmesh Ghatol",
-                          style: TextStyle(
-                              color: greyColor,
-                              fontFamily: "Oxygen",
-                              fontSize: 15)),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => StudentData()),
-                        );
-                      },
-                    ),
-                    trailing: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          primary: primaryPurple,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              side: BorderSide(color: primaryPurple))),
-                      onPressed: () {},
-                      child: Icon(Icons.arrow_forward_ios_rounded),
-                    ),
-                  );
-                },
-                itemCount: 20,
-              ))
+            height: screen().height,
+            width: screen().width,
+            child: StreamBuilder<QuerySnapshot>(
+              stream: students,
+              builder: (BuildContext context,
+                  AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (snapshot.hasError) {
+                  return Text("Something went Wrong.");
+                }
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Text("Loading.");
+                }
+                final data = snapshot.requireData;
+                return ListView.builder(
+                  itemBuilder: (context, index) {
+                    final studentIndex = index;
+                    return ListTile(
+                      leading: TextButton(
+                        style: TextButton.styleFrom(primary: whiteColor),
+                        child: Text("${data.docs[index]['Name']}",
+                            style: TextStyle(
+                                color: greyColor,
+                                fontFamily: "Oxygen",
+                                fontSize: 15)),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => StudentData(
+                                        studentIndex: studentIndex,
+                                      )));
+                        },
+                      ),
+                      trailing: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            primary: primaryPurple,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                side: BorderSide(color: primaryPurple))),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    WeditPage(studentId: studentIndex)),
+                          );
+                        },
+                        child: Icon(Icons.edit),
+                      ),
+                    );
+                  },
+                  itemCount: data.size,
+                );
+              },
+            ),
+           
+          )
         ]));
   }
 }
