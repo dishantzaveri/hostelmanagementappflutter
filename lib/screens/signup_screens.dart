@@ -1,25 +1,51 @@
-// // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
+// // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
-// import 'package:easydorm/screens/admin_screens/main_admin.dart';
-// import 'package:easydorm/screens/admin_screens/student_names.dart';
-// import 'package:easydorm/screens/signup_screen.dart';
-// import 'package:flutter/material.dart';
 // import 'package:easydorm/constants.dart';
+// import 'package:easydorm/screens/login_screen.dart';
+// import 'package:flutter/material.dart';
 
-// class Login extends StatefulWidget {
-//   const Login({Key? key}) : super(key: key);
+// class SignUp extends StatefulWidget {
+//   const SignUp({Key? key}) : super(key: key);
 
 //   @override
-//   _LoginState createState() => _LoginState();
+//   _SignUpState createState() => _SignUpState();
 // }
 
-// class _LoginState extends State<Login> {
+// class _SignUpState extends State<SignUp> {
 //   Size screen() {
 //     return MediaQuery.of(context).size;
 //   }
 
-//   String dropDownValue = "Student";
 //   Widget _buildUser() {
+//     return Column(
+//       crossAxisAlignment: CrossAxisAlignment.start,
+//       children: [
+//         Text("Username",
+//             style: TextStyle(
+//               color: whiteColor,
+//               fontFamily: "Oxygen",
+//               fontSize: 17,
+//             )),
+//         SizedBox(height: 10),
+//         Container(
+//           alignment: Alignment.centerLeft,
+//           height: 60,
+//           child: TextField(
+//               style: TextStyle(color: Colors.white),
+//               decoration: InputDecoration(
+//                   border: InputBorder.none,
+//                   contentPadding: EdgeInsets.only(top: 14),
+//                   prefixIcon:
+//                       Icon(Icons.supervised_user_circle, color: Colors.white),
+//                   hintText: "Enter your UserName",
+//                   hintStyle: TextStyle(
+//                       fontFamily: "Oxygen", fontSize: 15, color: whiteColor))),
+//         )
+//       ],
+//     );
+//   }
+
+//   Widget _buildEmail() {
 //     return Column(
 //       crossAxisAlignment: CrossAxisAlignment.start,
 //       children: [
@@ -77,14 +103,14 @@
 //     );
 //   }
 
-//   Widget _buildLoginBtn() {
+//   Widget _buildSignupBtn() {
 //     return Container(
 //       padding: EdgeInsets.symmetric(vertical: 25.0),
 //       width: double.infinity,
 //       child: ElevatedButton(
 //         onPressed: () {
-//           Navigator.push(
-//               context, MaterialPageRoute(builder: (context) => StudentData()));
+//           // Navigator.push(
+//           //     context, MaterialPageRoute(builder: (context) => ));
 //         },
 //         style: ButtonStyle(
 //             padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
@@ -97,7 +123,7 @@
 //                     side: BorderSide(color: primaryPurple))),
 //             backgroundColor: MaterialStateProperty.all(Colors.white)),
 //         child: Text(
-//           'LOGIN',
+//           'SIGN UP',
 //           style: TextStyle(
 //             color: Colors.black,
 //             letterSpacing: 1.5,
@@ -110,43 +136,92 @@
 //     );
 //   }
 
-//   Widget _buildSignupBtn() {
-//     if (dropDownValue == "Student") {
-//       return GestureDetector(
-//         onTap: () {
-//           Navigator.push(
-//               context, MaterialPageRoute(builder: (context) => SignUp()));
-//         },
-//         child: RichText(
-//           text: TextSpan(
-//             children: [
-//               TextSpan(
-//                 text: 'Don\'t have an Account? ',
-//                 style: TextStyle(
-//                   color: Colors.white,
-//                   fontFamily: "Oxygen",
-//                   fontSize: 13.0,
-//                   fontWeight: FontWeight.w400,
+//   String dropDownValue = "Maharashtra";
+//   Widget _buildStatesDrpDown() {
+//     List<String> states = [
+//       "Andaman and Nicobar Islands",
+//       "Andra Pradesh",
+//       "Arunachal Pradesh",
+//       "Assam",
+//       "Bihar",
+//       "Chandigarh",
+//       "Chhattisgarh",
+//       "Dadra and Nagar Haveli",
+//       "Daman and Diu",
+//       "Delhi",
+//       "Goa",
+//       "Gujarat",
+//       "Haryana",
+//       "Himachal Pradesh",
+//       "Jammu and Kashmir",
+//       "Jharkhand",
+//       "Karnataka",
+//       "Kerala",
+//       "Lakshadweep",
+//       "Madhya Pradesh",
+//       "Maharashtra",
+//       "Manipur",
+//       "Meghalaya",
+//       "Mizoram",
+//       "Nagaland",
+//       "Odisha",
+//       "Pondicherry",
+//       "Punjab",
+//       "Rajasthan",
+//       "Sikkim",
+//       "Tamil Nadu",
+//       "Telangana",
+//       "Tripura",
+//       "Uttar Pradesh",
+//       "Uttarakhand",
+//       "West Bengal"
+//     ];
+//     return Container(
+//       width: screen().width,
+//       child: Column(
+//         crossAxisAlignment: CrossAxisAlignment.start,
+//         children: [
+//           Text("Select region",
+//               style: TextStyle(
+//                 color: whiteColor,
+//                 fontFamily: "Oxygen",
+//                 fontSize: 15,
+//               )),
+//           SizedBox(height: 10),
+//           Theme(
+//             data: Theme.of(context).copyWith(
+//               canvasColor: primaryPurple,
+//             ),
+//             child: Container(
+//               width: 0.65 * screen().width,
+//               child: DropdownButton(
+//                 value: dropDownValue,
+//                 items: states.map<DropdownMenuItem<String>>((String value) {
+//                   return DropdownMenuItem<String>(
+//                     value: value,
+//                     child: Text(value,
+//                         style: TextStyle(
+//                           color: whiteColor,
+//                           fontFamily: "Oxygen",
+//                           fontSize: 17,
+//                         )),
+//                   );
+//                 }).toList(),
+//                 icon: Icon(
+//                   // Add this
+//                   Icons.arrow_drop_down, // Add this
+//                   color: Colors.white, // Add this
 //                 ),
+//                 onChanged: (dynamic value) {
+//                   dropDownValue = value;
+//                   setState(() {});
+//                 },
 //               ),
-//               TextSpan(
-//                 text: 'Sign Up',
-//                 style: TextStyle(
-//                   color: Colors.white,
-//                   fontSize: 13.0,
-//                   fontWeight: FontWeight.bold,
-//                 ),
-//               ),
-//             ],
+//             ),
 //           ),
-//         ),
-//       );
-//     } else {
-//       return Text(
-//         ";)",
-//         style: TextStyle(color: whiteColor),
-//       );
-//     }
+//         ],
+//       ),
+//     );
 //   }
 
 //   @override
@@ -185,48 +260,21 @@
 //                   mainAxisAlignment: MainAxisAlignment.center,
 //                   children: [
 //                     Text(
-//                       "Sign in",
+//                       "Sign Up",
 //                       style: TextStyle(
 //                         fontFamily: "Oxygen",
 //                         color: whiteColor,
 //                         fontSize: 30,
 //                       ),
 //                     ),
-//                     SizedBox(height: 20),
-//                     Theme(
-//                       data: Theme.of(context).copyWith(
-//                         canvasColor: primaryPurple,
-//                       ),
-//                       child: DropdownButton(
-//                         value: dropDownValue,
-//                         items: ['Admin', 'Warden', 'Student']
-//                             .map<DropdownMenuItem<String>>((String value) {
-//                           return DropdownMenuItem<String>(
-//                             value: value,
-//                             child: Text(value,
-//                                 style: TextStyle(
-//                                   color: whiteColor,
-//                                   fontFamily: "Oxygen",
-//                                   fontSize: 17,
-//                                 )),
-//                           );
-//                         }).toList(),
-//                         icon: Icon(
-//                           // Add this
-//                           Icons.arrow_drop_down, // Add this
-//                           color: Colors.white, // Add this
-//                         ),
-//                         onChanged: (dynamic value) {
-//                           dropDownValue = value;
-//                           setState(() {});
-//                         },
-//                       ),
-//                     ),
-//                     SizedBox(height: 30),
+//                     SizedBox(height: 15),
 //                     _buildUser(),
-//                     SizedBox(height: 30),
+//                     SizedBox(height: 15),
+//                     _buildEmail(),
+//                     SizedBox(height: 15),
 //                     _buildPass(),
-//                     _buildLoginBtn(),
+//                     SizedBox(height: 15),
+//                     _buildStatesDrpDown(),
 //                     _buildSignupBtn()
 //                   ],
 //                 ),

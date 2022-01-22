@@ -1,68 +1,68 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+// // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
-import 'package:easydorm/constants.dart';
-import 'package:flutter/material.dart';
+// import 'package:easydorm/constants.dart';
+// import 'package:flutter/material.dart';
 
-class StudentData extends StatefulWidget {
-  const StudentData({Key? key}) : super(key: key);
+// class StudentData extends StatefulWidget {
+//   const StudentData({Key? key}) : super(key: key);
 
-  @override
-  State<StudentData> createState() => _StudentDataState();
-}
+//   @override
+//   State<StudentData> createState() => _StudentDataState();
+// }
 
-class _StudentDataState extends State<StudentData> {
-  Size screen() {
-    return MediaQuery.of(context).size;
-  }
+// class _StudentDataState extends State<StudentData> {
+//   Size screen() {
+//     return MediaQuery.of(context).size;
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            "Students",
-            style: TextStyle(
-              fontFamily: "Oxygen",
-              fontSize: 20,
-            ),
-          ),
-          backgroundColor: primaryPurple,
-        ),
-        body: Stack(children: [
-          Container(
-            height: screen().height,
-            width: screen().width,
-            decoration: BoxDecoration(color: whiteColor),
-          ),
-          Container(
-              height: screen().height,
-              width: screen().width,
-              child: ListView.builder(
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: TextButton(
-                      style: TextButton.styleFrom(primary: whiteColor),
-                      child: Text("Prathmesh Ghatol",
-                          style: TextStyle(
-                              color: greyColor,
-                              fontFamily: "Oxygen",
-                              fontSize: 15)),
-                      onPressed: () {},
-                    ),
-                    trailing: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          primary: primaryPurple,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              side: BorderSide(color: primaryPurple))),
-                      onPressed: () {},
-                      child: Icon(Icons.arrow_forward_ios_rounded),
-                    ),
-                  );
-                },
-                itemCount: 20,
-              ))
-        ]));
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         appBar: AppBar(
+//           centerTitle: true,
+//           title: Text(
+//             "Students",
+//             style: TextStyle(
+//               fontFamily: "Oxygen",
+//               fontSize: 20,
+//             ),
+//           ),
+//           backgroundColor: primaryPurple,
+//         ),
+//         body: Stack(children: [
+//           Container(
+//             height: screen().height,
+//             width: screen().width,
+//             decoration: BoxDecoration(color: whiteColor),
+//           ),
+//           Container(
+//               height: screen().height,
+//               width: screen().width,
+//               child: ListView.builder(
+//                 itemBuilder: (context, index) {
+//                   return ListTile(
+//                     leading: TextButton(
+//                       style: TextButton.styleFrom(primary: whiteColor),
+//                       child: Text("Prathmesh Ghatol",
+//                           style: TextStyle(
+//                               color: greyColor,
+//                               fontFamily: "Oxygen",
+//                               fontSize: 15)),
+//                       onPressed: () {},
+//                     ),
+//                     trailing: ElevatedButton(
+//                       style: ElevatedButton.styleFrom(
+//                           primary: primaryPurple,
+//                           shape: RoundedRectangleBorder(
+//                               borderRadius: BorderRadius.circular(30),
+//                               side: BorderSide(color: primaryPurple))),
+//                       onPressed: () {},
+//                       child: Icon(Icons.arrow_forward_ios_rounded),
+//                     ),
+//                   );
+//                 },
+//                 itemCount: 20,
+//               ))
+//         ]));
+//   }
+// }

@@ -1,139 +1,23 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
-
-import 'package:easydorm/constants.dart';
-import 'package:easydorm/screens/login_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:easydorm/reusable_widgets/reusable_widget.dart';
+import 'package:easydorm/screens/home_screen.dart';
+import 'package:easydorm/utils/color_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:easydorm/constants.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({Key? key}) : super(key: key);
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
-  _SignUpState createState() => _SignUpState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpScreenState extends State<SignUpScreen> {
+  TextEditingController _passwordTextController = TextEditingController();
+  TextEditingController _emailTextController = TextEditingController();
+  TextEditingController _userNameTextController = TextEditingController();
   Size screen() {
     return MediaQuery.of(context).size;
-  }
-
-  Widget _buildUser() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("Username",
-            style: TextStyle(
-              color: whiteColor,
-              fontFamily: "Oxygen",
-              fontSize: 17,
-            )),
-        SizedBox(height: 10),
-        Container(
-          alignment: Alignment.centerLeft,
-          height: 60,
-          child: TextField(
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.only(top: 14),
-                  prefixIcon:
-                      Icon(Icons.supervised_user_circle, color: Colors.white),
-                  hintText: "Enter your UserName",
-                  hintStyle: TextStyle(
-                      fontFamily: "Oxygen", fontSize: 15, color: whiteColor))),
-        )
-      ],
-    );
-  }
-
-  Widget _buildEmail() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("Email",
-            style: TextStyle(
-              color: whiteColor,
-              fontFamily: "Oxygen",
-              fontSize: 17,
-            )),
-        SizedBox(height: 10),
-        Container(
-          alignment: Alignment.centerLeft,
-          height: 60,
-          child: TextField(
-              keyboardType: TextInputType.emailAddress,
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.only(top: 14),
-                  prefixIcon: Icon(Icons.email_outlined, color: Colors.white),
-                  hintText: "Enter your Email",
-                  hintStyle: TextStyle(
-                      fontFamily: "Oxygen", fontSize: 15, color: whiteColor))),
-        )
-      ],
-    );
-  }
-
-  Widget _buildPass() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("PassWord",
-            style: TextStyle(
-              color: whiteColor,
-              fontFamily: "Oxygen",
-              fontSize: 17,
-            )),
-        SizedBox(height: 10),
-        Container(
-          alignment: Alignment.centerLeft,
-          height: 60,
-          child: TextField(
-              obscureText: true,
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.only(top: 14),
-                  prefixIcon: Icon(Icons.lock, color: Colors.white),
-                  hintText: "Enter your Password",
-                  hintStyle: TextStyle(
-                      fontFamily: "Oxygen", fontSize: 15, color: whiteColor))),
-        )
-      ],
-    );
-  }
-
-  Widget _buildSignupBtn() {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 25.0),
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: () {
-          // Navigator.push(
-          //     context, MaterialPageRoute(builder: (context) => ));
-        },
-        style: ButtonStyle(
-            padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
-                (Set<MaterialState> states) {
-              return EdgeInsets.all(15);
-            }),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    side: BorderSide(color: primaryPurple))),
-            backgroundColor: MaterialStateProperty.all(Colors.white)),
-        child: Text(
-          'SIGN UP',
-          style: TextStyle(
-            color: Colors.black,
-            letterSpacing: 1.5,
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'OpenSans',
-          ),
-        ),
-      ),
-    );
   }
 
   String dropDownValue = "Maharashtra";
@@ -239,26 +123,21 @@ class _SignUpState extends State<SignUp> {
         ),
         backgroundColor: transparent,
       ),
-      body: Stack(
-        children: [
-          Container(
-            height: screen().height,
-            width: screen().width,
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [primaryPurple, Color(0xFF4527A0)])),
-          ),
-          Container(
-              height: screen().height,
-              width: screen().width,
-              child: SingleChildScrollView(
-                physics: AlwaysScrollableScrollPhysics(),
+      body: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [primaryPurple, Color(0xFF4527A0)])),
+          child: SingleChildScrollView(
+              physics: AlwaysScrollableScrollPhysics(),
+              child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 40, vertical: 120),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: <Widget>[
                     Text(
                       "Sign Up",
                       style: TextStyle(
@@ -267,20 +146,42 @@ class _SignUpState extends State<SignUp> {
                         fontSize: 30,
                       ),
                     ),
-                    SizedBox(height: 15),
-                    _buildUser(),
-                    SizedBox(height: 15),
-                    _buildEmail(),
-                    SizedBox(height: 15),
-                    _buildPass(),
-                    SizedBox(height: 15),
-                    _buildStatesDrpDown(),
-                    _buildSignupBtn()
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    reusableTextField("Enter Email Id", Icons.person_outline,
+                        false, _emailTextController),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    reusableTextField("Enter Password", Icons.lock_outlined,
+                        true, _passwordTextController),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    reusableTextField("Enter PinCode", Icons.person_outline,
+                        false, _userNameTextController),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    firebaseUIButton(context, "Sign Up", () {
+                      FirebaseAuth.instance
+                          .createUserWithEmailAndPassword(
+                              email: _emailTextController.text,
+                              password: _passwordTextController.text)
+                          .then((value) {
+                        print("Created New Account");
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomeScreen()));
+                      }).onError((error, stackTrace) {
+                        print("Error ${error.toString()}");
+                      });
+                    })
                   ],
                 ),
-              ))
-        ],
-      ),
+              ))),
     );
   }
 }

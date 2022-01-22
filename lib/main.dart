@@ -2,9 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:easydorm/screens/login_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:easydorm/screens/signin_screen.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -25,7 +30,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           splashIconSize: double.maxFinite,
-          nextScreen: Login(),
+          nextScreen: const SignInScreen(),
           duration: 1,
           backgroundColor: Colors.white,
         ));
