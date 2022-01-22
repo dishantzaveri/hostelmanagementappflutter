@@ -1,20 +1,21 @@
+import 'package:easydorm/screens/admin_screens/student_names.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easydorm/reusable_widgets/reusable_widget.dart';
 import 'package:easydorm/screens/home_screen.dart';
-import 'package:easydorm/screens/reset_password.dart';
-import 'package:easydorm/screens/signup_screen.dart';
+import 'package:easydorm/screens/login_signup%20files/reset_password.dart';
+import 'package:easydorm/screens/login_signup%20files/signup_screen.dart';
 import 'package:easydorm/utils/color_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:easydorm/constants.dart';
 
-class WardenSignInScreen extends StatefulWidget {
-  const WardenSignInScreen({Key? key}) : super(key: key);
+class AdminSignInScreen extends StatefulWidget {
+  const AdminSignInScreen({Key? key}) : super(key: key);
 
   @override
-  _WardenSignInScreenState createState() => _WardenSignInScreenState();
+  _AdminSignInScreenState createState() => _AdminSignInScreenState();
 }
 
-class _WardenSignInScreenState extends State<WardenSignInScreen> {
+class _AdminSignInScreenState extends State<AdminSignInScreen> {
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
   @override
@@ -36,7 +37,7 @@ class _WardenSignInScreenState extends State<WardenSignInScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  "Warden",
+                  "Admin",
                   style: TextStyle(
                     fontFamily: "Oxygen",
                     color: whiteColor,
@@ -64,7 +65,7 @@ class _WardenSignInScreenState extends State<WardenSignInScreen> {
                           password: _passwordTextController.text)
                       .then((value) {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                        MaterialPageRoute(builder: (context) => StudentName()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
                   });

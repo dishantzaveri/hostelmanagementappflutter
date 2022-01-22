@@ -1,11 +1,11 @@
 // ignore_for_file: deprecated_member_use, prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, annotate_overrides, prefer_final_fields, unused_field, prefer_const_constructors_in_immutables
 
 import 'package:easydorm/constants.dart';
-import 'package:easydorm/screens/wardensignin_screen.dart';
+import 'package:easydorm/screens/warden_screens/wardensignin_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:easydorm/screens/signin_screen.dart';
+import 'package:easydorm/screens/login_signup%20files/signin_screen.dart';
 
-import 'adminsignin_screen.dart';
+import 'admin_screens/adminsignin_screen.dart';
 // class MyApp extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {

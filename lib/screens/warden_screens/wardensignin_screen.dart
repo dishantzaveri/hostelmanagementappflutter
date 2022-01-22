@@ -1,21 +1,20 @@
-import 'package:easydorm/screens/student_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easydorm/reusable_widgets/reusable_widget.dart';
 import 'package:easydorm/screens/home_screen.dart';
-import 'package:easydorm/screens/reset_password.dart';
-import 'package:easydorm/screens/signup_screen.dart';
+import 'package:easydorm/screens/login_signup%20files/reset_password.dart';
+import 'package:easydorm/screens/login_signup%20files/signup_screen.dart';
 import 'package:easydorm/utils/color_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:easydorm/constants.dart';
-
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+import 'package:easydorm/screens/warden_screens/warden_students';
+class WardenSignInScreen extends StatefulWidget {
+  const WardenSignInScreen({Key? key}) : super(key: key);
 
   @override
-  _SignInScreenState createState() => _SignInScreenState();
+  _WardenSignInScreenState createState() => _WardenSignInScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _WardenSignInScreenState extends State<WardenSignInScreen> {
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
   @override
@@ -37,7 +36,7 @@ class _SignInScreenState extends State<SignInScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  "Student",
+                  "Warden",
                   style: TextStyle(
                     fontFamily: "Oxygen",
                     color: whiteColor,
@@ -65,12 +64,12 @@ class _SignInScreenState extends State<SignInScreen> {
                           password: _passwordTextController.text)
                       .then((value) {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Student()));
+                        MaterialPageRoute(builder: (context) => WardenStudent()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
                   });
                 }),
-                signUpOption()
+                // signUpOption()
               ],
             ),
           ),
@@ -79,25 +78,25 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  Row signUpOption() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Text("Don't have account?",
-            style: TextStyle(color: Colors.white70)),
-        GestureDetector(
-          onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => SignUpScreen()));
-          },
-          child: const Text(
-            " Sign Up",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-        )
-      ],
-    );
-  }
+  // Row signUpOption() {
+  //   return Row(
+  //     mainAxisAlignment: MainAxisAlignment.center,
+  //     children: [
+  //       const Text("Don't have account?",
+  //           style: TextStyle(color: Colors.white70)),
+  //       GestureDetector(
+  //         onTap: () {
+  //           Navigator.push(context,
+  //               MaterialPageRoute(builder: (context) => SignUpScreen()));
+  //         },
+  //         child: const Text(
+  //           " Sign Up",
+  //           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+  //         ),
+  //       )
+  //     ],
+  //   );
+  // }
 
   Widget forgetPassword(BuildContext context) {
     return Container(

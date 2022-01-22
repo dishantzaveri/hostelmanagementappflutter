@@ -3,6 +3,8 @@
 import 'package:easydorm/screens/nav_bar.dart';
 import 'package:easydorm/student_files/check_in.dart';
 import 'package:easydorm/student_files/edit_student_data.dart';
+
+
 import 'package:easydorm/student_files/profile.dart';
 import 'package:easydorm/student_files/user_student.dart';
 import 'package:easydorm/student_files/user_data.dart';
@@ -168,7 +170,7 @@ class _StudentState extends State<Student> {
               onClicked: () async {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const EditPage()),
+                  MaterialPageRoute(builder: (context) => EditPage()),
                 );
               },
             ),
