@@ -1,7 +1,6 @@
 import 'package:easydorm/screens/admin_screens/student_names.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easydorm/reusable_widgets/reusable_widget.dart';
-import 'package:easydorm/screens/home_screen.dart';
 import 'package:easydorm/screens/login_signup%20files/reset_password.dart';
 import 'package:easydorm/screens/login_signup%20files/signup_screen.dart';
 import 'package:easydorm/utils/color_utils.dart';
