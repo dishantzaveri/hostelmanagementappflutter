@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:easydorm/student_files/check_in.dart';
 import 'package:flutter/material.dart';
 import 'package:easydorm/constants.dart';
-
 
 class TakeLeave extends StatefulWidget {
   const TakeLeave({Key? key}) : super(key: key);
@@ -83,12 +83,13 @@ class _TakeLeaveState extends State<TakeLeave> {
                   SizedBox(
                     height: 10,
                   ),
-                            Padding(
-                    padding:  EdgeInsets.symmetric(horizontal:  0.3*screen().width),
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 0.3 * screen().width),
                     child: ElevatedButton.icon(
                         style: ButtonStyle(
                             padding: MaterialStateProperty.all(
-                                EdgeInsets.only(top: 8, bottom: 8,right: 5)),
+                                EdgeInsets.only(top: 8, bottom: 8, right: 5)),
                             backgroundColor:
                                 MaterialStateProperty.all(whiteColor),
                             shape: MaterialStateProperty.all<
@@ -152,36 +153,93 @@ class _TakeLeaveState extends State<TakeLeave> {
                   SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                    padding:  EdgeInsets.symmetric(horizontal:  0.299*screen().width),
-                    child: ElevatedButton.icon(
-                        style: ButtonStyle(
-                            padding: MaterialStateProperty.all(
-                                EdgeInsets.only(top: 8, bottom: 8,right: 5)),
-                            backgroundColor:
-                                MaterialStateProperty.all(whiteColor),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.0),
-                            ))),
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.payment,
-                          size: 0,
-                        ),
-                        label: Text(
-                          'End Of Leave',
-                          style: TextStyle(
-                            color: primaryPurple,
-                            fontFamily: "Oxygen",
-                            fontSize: 15,
+                  Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 0.299 * screen().width),
+                        child: ElevatedButton.icon(
+                            style: ButtonStyle(
+                                padding: MaterialStateProperty.all(
+                                    EdgeInsets.only(
+                                        top: 8, bottom: 8, right: 5)),
+                                backgroundColor:
+                                    MaterialStateProperty.all(whiteColor),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30.0),
+                                ))),
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.payment,
+                              size: 0,
+                            ),
+                            label: Text(
+                              'End Of Leave',
+                              style: TextStyle(
+                                color: primaryPurple,
+                                fontFamily: "Oxygen",
+                                fontSize: 15,
+                              ),
+                            )),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 0.299 * screen().width),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            labelText: 'Reason of Leave',
+                            labelStyle: (TextStyle(
+                                fontFamily: "Oxygen",
+                                fontSize: 20,
+                                color: whiteColor)),
                           ),
-                        )),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 0.299 * screen().width),
+                        child: ElevatedButton.icon(
+                            style: ButtonStyle(
+                                padding: MaterialStateProperty.all(
+                                    EdgeInsets.only(
+                                        top: 8, bottom: 8, right: 5)),
+                                backgroundColor:
+                                    MaterialStateProperty.all(whiteColor),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30.0),
+                                ))),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CheckIn()),
+                              );
+                            },
+                            icon: Icon(
+                              Icons.payment,
+                              size: 0,
+                            ),
+                            label: Text(
+                              'Submit',
+                              style: TextStyle(
+                                color: primaryPurple,
+                                fontFamily: "Oxygen",
+                                fontSize: 15,
+                              ),
+                            )),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 0.12 * screen().height,
                   ),
-                  
                 ],
               ))
         ],
