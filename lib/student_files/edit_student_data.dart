@@ -48,11 +48,7 @@ class _EditPageState extends State<EditPage> {
             SizedBox(
               height: 24,
             ),
-            TextFieldWidget(
-                label: 'Email', text: user.email, onChanged: (email) {}),
-            SizedBox(
-              height: 24,
-            ),
+            
             // TextFieldWidget(
             //     label: 'Room Number',
             //     text: user.roomno,

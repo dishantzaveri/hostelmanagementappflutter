@@ -6,7 +6,6 @@ class Userpref {
     imagePath: 'https://st1.bollywoodlife.com/wp-content/uploads/2021/08/kim-namjoonnn.png',
     name: 'Rucha Gavaskar',
     email: 'rucha1234@gmail.com',
-    foodpack: 'vegetarian',
     roomno: 'A202',
   );
 }

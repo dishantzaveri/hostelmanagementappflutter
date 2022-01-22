@@ -3,6 +3,8 @@
 import 'package:easydorm/screens/nav_bar.dart';
 import 'package:easydorm/student_files/check_in.dart';
 import 'package:easydorm/student_files/edit_student_data.dart';
+import 'package:easydorm/student_files/food_one.dart';
+import 'package:easydorm/student_files/payment_hostel.dart';
 import 'package:easydorm/student_files/profile.dart';
 import 'package:easydorm/student_files/user_student.dart';
 import 'package:easydorm/student_files/user_data.dart';
@@ -79,7 +81,11 @@ class _StudentState extends State<Student> {
                     RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ))),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) =>  Payment()),
+                );
+            },
             icon: Icon(
               Icons.payment,
               size: 20,
@@ -104,7 +110,11 @@ class _StudentState extends State<Student> {
                     RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ))),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) =>  Food()),
+                );
+            },
             icon: Icon(
               Icons.food_bank,
               size: 20,
