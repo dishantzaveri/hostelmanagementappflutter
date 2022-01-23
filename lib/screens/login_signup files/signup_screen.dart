@@ -190,8 +190,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             .then((value) => print("User added"))
                             .catchError(
                                 (error) => print("Something went wrong"));
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Student()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignUpScreen()));
                       }).onError((error, stackTrace) {
                         print("Error ${error.toString()}");
                       });

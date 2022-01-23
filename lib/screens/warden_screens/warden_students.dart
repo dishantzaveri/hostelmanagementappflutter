@@ -8,6 +8,8 @@ import 'package:easydorm/screens/admin_screens/student_data.dart';
 import 'package:flutter/material.dart';
 import 'package:easydorm/screens/warden_screens/warden_student_edit.dart';
 
+import '../nav_bar.dart';
+
 class WardenStudent extends StatefulWidget {
   const WardenStudent({Key? key}) : super(key: key);
 
@@ -101,6 +103,7 @@ class _WardenStudentState extends State<WardenStudent> {
     CollectionReference students1 =
         FirebaseFirestore.instance.collection('Students');
     return Scaffold(
+      drawer: Navigation(),
       appBar: AppBar(
         centerTitle: true,
         title: Text(
