@@ -29,6 +29,7 @@ class _CheckInState extends State<CheckIn> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Color(0x00ffffff),
+     
       ),
       body: Stack(
         children: <Widget>[
@@ -42,8 +43,8 @@ class _CheckInState extends State<CheckIn> {
                     colors: [primaryPurple, Color(0xFF4527A0)])),
           ),
           Container(
-              height: screen().height,
-              width: screen().width,
+            height: screen().height,
+            width: screen().width,
               margin: EdgeInsets.only(top: 0.1 * screen().height),
               child: ListView(
                 physics: BouncingScrollPhysics(),
@@ -74,7 +75,7 @@ class _CheckInState extends State<CheckIn> {
                               showDatePicker(
                                       context: context,
                                       initialDate: DateTime.now(),
-                                      firstDate: DateTime(2001),
+                                      firstDate: DateTime.now(),
                                       lastDate: DateTime(2050))
                                   .then((date) {
                                 setState(() {
@@ -83,31 +84,16 @@ class _CheckInState extends State<CheckIn> {
                               });
                             },
                           ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                                padding: MaterialStateProperty.all(
-                                    EdgeInsets.symmetric(
-                                        horizontal: 8, vertical: 8)),
-                                backgroundColor:
-                                    MaterialStateProperty.all(greyColor),
-                                shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                ))),
-                            onPressed: () {
-                              selectTime(context);
-                            },
-                            child: Text(
-                              _dateTime == null
-                                  ? 'Entry Time'
-                                  : '${selectedTime.hour}:${selectedTime.minute}',
+                         (_dateTime==null)?Icon(Icons.lock_clock,color: whiteColor,size: 25,)
+                      :Text(
+                               '${selectedTime.hour}:${selectedTime.minute}',
                               style: TextStyle(
                                   fontFamily: "Oxygen",
                                   fontSize: 15,
                                   color: whiteColor),
                             ),
-                          ),
+                           
+                        
 //
                         ]),
                   ),
@@ -115,8 +101,7 @@ class _CheckInState extends State<CheckIn> {
                     height: 10,
                   ),
                   Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 0.2 * screen().width),
+                    padding:  EdgeInsets.symmetric(horizontal: 0.2*screen().width),
                     child: ElevatedButton(
                         style: ButtonStyle(
                             backgroundColor:
@@ -135,16 +120,14 @@ class _CheckInState extends State<CheckIn> {
                           ),
                         )),
                   ),
-                  SizedBox(
-                    height: 0.05 * screen().height,
-                  ),
-                  Center(
+                  SizedBox(height: 0.05*screen().height,),
+                   Center(
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            _dateTime == null
+                            _outTime == null
                                 ? 'Exit Date'
                                 : '${_outTime?.day}/${_outTime?.month}/${_outTime?.year}',
                             style: TextStyle(
@@ -164,7 +147,7 @@ class _CheckInState extends State<CheckIn> {
                               showDatePicker(
                                       context: context,
                                       initialDate: DateTime.now(),
-                                      firstDate: DateTime(2001),
+                                      firstDate:_dateTime!,
                                       lastDate: DateTime(2050))
                                   .then((date) {
                                 setState(() {
@@ -173,31 +156,16 @@ class _CheckInState extends State<CheckIn> {
                               });
                             },
                           ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                                padding: MaterialStateProperty.all(
-                                    EdgeInsets.symmetric(
-                                        horizontal: 15, vertical: 8)),
-                                backgroundColor:
-                                    MaterialStateProperty.all(greyColor),
-                                shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                ))),
-                            onPressed: () {
-                              _selectTime(context);
-                            },
-                            child: Text(
-                              _outTime == null
-                                  ? 'Exit Time'
-                                  : '${outTime.hour}:${outTime.minute}',
+                           
+                         (_outTime==null)?Icon(Icons.lock_clock,color: whiteColor,size: 25,)
+                      :Text(
+                               '${selectedTime.hour}:${selectedTime.minute}',
                               style: TextStyle(
                                   fontFamily: "Oxygen",
                                   fontSize: 15,
                                   color: whiteColor),
                             ),
-                          ),
+                          
 //
                         ]),
                   ),
@@ -205,12 +173,11 @@ class _CheckInState extends State<CheckIn> {
                     height: 10,
                   ),
                   Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 0.2 * screen().width),
+                    padding:  EdgeInsets.symmetric(horizontal:  0.2*screen().width),
                     child: ElevatedButton.icon(
                         style: ButtonStyle(
-                            padding: MaterialStateProperty.all(
-                                EdgeInsets.only(top: 8, bottom: 8, right: 4)),
+                            padding: MaterialStateProperty.all(EdgeInsets.only(
+                                top: 8, bottom: 8,right:4)),
                             backgroundColor:
                                 MaterialStateProperty.all(whiteColor),
                             shape: MaterialStateProperty.all<
@@ -232,27 +199,24 @@ class _CheckInState extends State<CheckIn> {
                         )),
                   ),
                   SizedBox(
-                    height: 0.12 * screen().height,
+                    height: 0.12*screen().height,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 120.0),
                     child: ElevatedButton(
                         style: ButtonStyle(
-                            padding: MaterialStateProperty.all(
-                                EdgeInsets.only(top: 15, bottom: 15)),
+                            padding: MaterialStateProperty.all(EdgeInsets.only(
+                                top: 15, bottom: 15)),
                             backgroundColor:
                                 MaterialStateProperty.all(whiteColor),
                             shape: MaterialStateProperty.all<
                                 RoundedRectangleBorder>(RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0),
                             ))),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const TakeLeave()),
-                          );
-                        },
+                         onPressed: () { Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const TakeLeave()),
+                );},
                         child: Text(
                           'Take Leave',
                           style: TextStyle(
@@ -264,6 +228,7 @@ class _CheckInState extends State<CheckIn> {
                   ),
                 ],
               ))
+
         ],
       ),
     );
@@ -281,7 +246,6 @@ class _CheckInState extends State<CheckIn> {
       });
     }
   }
-
   _selectTime(BuildContext context) async {
     final TimeOfDay? timeOfDay = await showTimePicker(
       context: context,
@@ -290,7 +254,7 @@ class _CheckInState extends State<CheckIn> {
     );
     if (timeOfDay != null && timeOfDay != outTime) {
       setState(() {
-        outTime = timeOfDay;
+        outTime= timeOfDay;
       });
     }
   }

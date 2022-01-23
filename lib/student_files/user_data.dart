@@ -3,9 +3,10 @@ import 'package:easydorm/student_files/user_student.dart';
 
 class Userpref {
   static const myUser = MyUser(
-    imagePath: 'https://st1.bollywoodlife.com/wp-content/uploads/2021/08/kim-namjoonnn.png',
+    imagePath:
+        'https://www.seekpng.com/png/detail/138-1387631_login-comments-windows-10-person-icon.png',
     name: 'Rucha Gavaskar',
-    email: 'rucha1234@gmail.com',
+    email: 'ruchagavaskar@gmail.com',
     roomno: 'A202',
   );
 }

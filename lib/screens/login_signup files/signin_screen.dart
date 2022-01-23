@@ -7,7 +7,7 @@ import 'package:easydorm/screens/login_signup%20files/signup_screen.dart';
 import 'package:easydorm/utils/color_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:easydorm/constants.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);

@@ -6,8 +6,6 @@ import 'package:easydorm/screens/admin_screens/student_data.dart';
 import 'package:easydorm/screens/warden_screens/warden_student_edit.dart';
 import 'package:flutter/material.dart';
 
-import '../nav_bar.dart';
-
 class StudentName extends StatefulWidget {
   const StudentName({Key? key}) : super(key: key);
 
@@ -19,14 +17,27 @@ class _StudentNameState extends State<StudentName> {
   Size screen() {
     return MediaQuery.of(context).size;
   }
-final Stream<QuerySnapshot> students =
+
+  String dropDownValue = "A101";
+  List<String> states = [
+    "A101",
+    "A102",
+    "A103",
+    "A104",
+    "A201",
+    "A202",
+    "A203",
+    "A204",
+    "A301",
+    "A302"
+  ];
+  final Stream<QuerySnapshot> students =
       FirebaseFirestore.instance.collection('Students').snapshots();
   @override
   Widget build(BuildContext context) {
+    CollectionReference students1 =
+        FirebaseFirestore.instance.collection('Students');
     return Scaffold(
-        drawer: Navigation(),
-        backgroundColor: whiteColor,
-        extendBodyBehindAppBar: true,
         appBar: AppBar(
           centerTitle: true,
           title: Text(
@@ -61,6 +72,7 @@ final Stream<QuerySnapshot> students =
                 return ListView.builder(
                   itemBuilder: (context, index) {
                     final studentIndex = index;
+                    final id = data.docs[index].id;
                     return ListTile(
                       leading: TextButton(
                         style: TextButton.styleFrom(primary: whiteColor),
@@ -77,6 +89,56 @@ final Stream<QuerySnapshot> students =
                                         studentIndex: studentIndex,
                                       )));
                         },
+                      ),
+                      title: Container(
+                        width: screen().width,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Select region",
+                                style: TextStyle(
+                                  color: whiteColor,
+                                  fontFamily: "Oxygen",
+                                  fontSize: 15,
+                                )),
+                            SizedBox(height: 10),
+                            Theme(
+                              data: Theme.of(context).copyWith(
+                                canvasColor: primaryPurple,
+                              ),
+                              child: Container(
+                                width: 0.65 * screen().width,
+                                child: DropdownButton(
+                                  value: dropDownValue,
+                                  items: states.map<DropdownMenuItem<String>>(
+                                      (String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value,
+                                          style: TextStyle(
+                                            color: greyColor,
+                                            fontFamily: "Oxygen",
+                                            fontSize: 17,
+                                          )),
+                                    );
+                                  }).toList(),
+                                  icon: Icon(
+                                    // Add this
+                                    Icons.arrow_drop_down, // Add this
+                                    color: greyColor, // Add this
+                                  ),
+                                  onChanged: (dynamic value) {
+                                    dropDownValue = value;
+                                    students1
+                                        .doc('$id')
+                                        .update({'Room no': dropDownValue});
+                                    setState(() {});
+                                  },
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       trailing: ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -100,7 +162,36 @@ final Stream<QuerySnapshot> students =
                 );
               },
             ),
-           
+            // child: ListView.builder(
+            //   itemBuilder: (context, index) {
+            //     return ListTile(
+            //       leading: TextButton(
+            //         style: TextButton.styleFrom(primary: whiteColor),
+            //         child: Text("Prathmesh Ghatol",
+            //             style: TextStyle(
+            //                 color: greyColor,
+            //                 fontFamily: "Oxygen",
+            //                 fontSize: 15)),
+            //         onPressed: () {
+            //           Navigator.push(
+            //             context,
+            //             MaterialPageRoute(builder: (context) => StudentData()),
+            //           );
+            //         },
+            //       ),
+            //       trailing: ElevatedButton(
+            //         style: ElevatedButton.styleFrom(
+            //             primary: primaryPurple,
+            //             shape: RoundedRectangleBorder(
+            //                 borderRadius: BorderRadius.circular(30),
+            //                 side: BorderSide(color: primaryPurple))),
+            //         onPressed: () {},
+            //         child: Icon(Icons.arrow_forward_ios_rounded),
+            //       ),
+            //     );
+            //   },
+            //   itemCount: 20,
+            // ),
           )
         ]));
   }

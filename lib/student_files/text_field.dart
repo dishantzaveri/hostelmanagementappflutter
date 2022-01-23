@@ -10,7 +10,7 @@ class TextFieldWidget extends StatefulWidget {
   final ValueChanged<String> onChanged;
   const TextFieldWidget(
       {Key? key,
-      this.max=1,
+      this.max = 1,
       required this.label,
       required this.onChanged,
       required this.text})
@@ -23,40 +23,41 @@ class TextFieldWidget extends StatefulWidget {
 class _TextFieldWidgetState extends State<TextFieldWidget> {
   late final TextEditingController controller;
   @override
-  void initState(){
+  void initState() {
     super.initState();
     controller = TextEditingController(text: widget.text);
   }
+
   @override
-  void dispose(){
+  void dispose() {
     controller.dispose();
     super.dispose();
-    
   }
+
   @override
   Widget build(BuildContext context) => Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Padding(
-        padding: const EdgeInsets.only(left: 20.0, bottom: 5),
-        child: Text(widget.label,
-        style:  TextStyle(
-                  fontWeight: FontWeight.w700,
-                  color: greyColor,
-                  fontFamily: "Oxygen",
-                  fontSize: 20,
-                ),),
-      ),
-            TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30)
-                ),
-              
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0, bottom: 5),
+            child: Text(
+              widget.label,
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                color: greyColor,
+                fontFamily: "Oxygen",
+                fontSize: 20,
               ),
-              controller: controller,
-              maxLines: widget.max,
-            )
-    ],
-  );
+            ),
+          ),
+          TextField(
+            decoration: InputDecoration(
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+            ),
+            controller: controller,
+            maxLines: widget.max,
+          )
+        ],
+      );
 }

@@ -1,4 +1,4 @@
-import 'package:easydorm/screens/login_signup%20files/signin_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easydorm/student_files/student_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easydorm/reusable_widgets/reusable_widget.dart';
@@ -18,6 +18,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
   TextEditingController _userNameTextController = TextEditingController();
+  TextEditingController _pinController = TextEditingController();
   Size screen() {
     return MediaQuery.of(context).size;
   }
@@ -112,6 +113,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference students =
+        FirebaseFirestore.instance.collection('Students');
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -151,6 +154,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     const SizedBox(
                       height: 20,
                     ),
+                    reusableTextField("Enter User Name", Icons.person, false,
+                        _userNameTextController),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     reusableTextField("Enter Email Id", Icons.person_outline,
                         false, _emailTextController),
                     const SizedBox(
@@ -162,7 +170,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       height: 20,
                     ),
                     reusableTextField("Enter PinCode", Icons.person_outline,
-                        false, _userNameTextController),
+                        false, _pinController),
                     const SizedBox(
                       height: 20,
                     ),
@@ -173,10 +181,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               password: _passwordTextController.text)
                           .then((value) {
                         print("Created New Account");
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SignInScreen()));
+                        students
+                            .add({
+                              'Name': _userNameTextController.text,
+                              'Email': _emailTextController.text,
+                              'Pin Code': _pinController.text
+                            })
+                            .then((value) => print("User added"))
+                            .catchError(
+                                (error) => print("Something went wrong"));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Student()));
                       }).onError((error, stackTrace) {
                         print("Error ${error.toString()}");
                       });
