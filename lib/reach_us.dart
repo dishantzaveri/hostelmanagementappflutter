@@ -82,8 +82,8 @@ class _ReachUsState extends State<ReachUs> {
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                   hintText: 'Your name',
-                  hintStyle: TextStyle(
-                      color: Colors.white70, fontFamily: 'RobotoSlab'),
+                  hintStyle:
+                      TextStyle(color: Colors.black, fontFamily: 'RobotoSlab'),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(12),
@@ -123,7 +123,7 @@ class _ReachUsState extends State<ReachUs> {
                       EdgeInsets.symmetric(vertical: 35, horizontal: 20),
                   hintText: 'Your Honest Feedback',
                   hintStyle: TextStyle(
-                    color: Colors.white70,
+                    color: Colors.black,
                     fontFamily: 'RobotoSlab',
                   ),
                   border: OutlineInputBorder(

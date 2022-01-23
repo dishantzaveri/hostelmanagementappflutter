@@ -100,6 +100,14 @@ class _StudentDataState extends State<StudentData> {
       backgroundColor: whiteColor,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Student Profile",
+          style: TextStyle(
+            fontFamily: "Oxygen",
+            fontSize: 24,
+          ),
+        ),
         backgroundColor: primaryPurple,
       ),
       body: ListView(

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easydorm/student_files/student_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easydorm/reusable_widgets/reusable_widget.dart';
@@ -6,6 +7,7 @@ import 'package:easydorm/screens/login_signup%20files/signup_screen.dart';
 import 'package:easydorm/utils/color_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:easydorm/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);

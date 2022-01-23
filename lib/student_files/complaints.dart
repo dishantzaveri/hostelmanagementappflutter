@@ -12,50 +12,55 @@ class _ComplaintState extends State<Complaint> {
   Size screen() {
     return MediaQuery.of(context).size;
   }
+
   final formKey = GlobalKey<FormState>();
   String username = '';
-   late final TextEditingController controller;
+  late final TextEditingController controller;
   @override
-  void initState(){
+  void initState() {
     super.initState();
     controller = TextEditingController(text: username);
   }
+
   @override
-  void dispose(){
+  void dispose() {
     controller.dispose();
     super.dispose();
-    
   }
+
   Widget buildName() => Container(
-    padding: EdgeInsets.all(20),
-    decoration: BoxDecoration (
-      
-    ),
-    child: TextField(
-      
+        padding: EdgeInsets.all(20),
+        decoration: BoxDecoration(),
+        child: TextField(
           decoration: InputDecoration(
-            border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30)
-                ),
-              labelText: 'Complaint',
-              labelStyle: TextStyle(
-                color: whiteColor,
-                fontFamily: "Oxygen",
-                fontSize: 22,
-              ),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+            labelText: 'Complaint',
+            labelStyle: TextStyle(
+              color: whiteColor,
+              fontFamily: "Oxygen",
+              fontSize: 22,
             ),
+          ),
           onChanged: (value) => setState(() => username = value),
-       
-       controller: controller, ),
-  );
-  
+          controller: controller,
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryPurple,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Color(0x00ffffff),
+        centerTitle: true,
+        title: Text(
+          "Complaints",
+          style: TextStyle(
+            fontFamily: "Oxygen",
+            fontSize: 24,
+          ),
+        ),
+        backgroundColor: primaryPurple,
       ),
       body: Stack(
         children: [

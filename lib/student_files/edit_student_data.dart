@@ -26,6 +26,14 @@ class _EditPageState extends State<EditPage> {
       backgroundColor: whiteColor,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Profile",
+          style: TextStyle(
+            fontFamily: "Oxygen",
+            fontSize: 24,
+          ),
+        ),
         backgroundColor: primaryPurple,
       ),
       body: ListView(physics: BouncingScrollPhysics(), children: [
@@ -48,7 +56,7 @@ class _EditPageState extends State<EditPage> {
             SizedBox(
               height: 24,
             ),
-            
+
             // TextFieldWidget(
             //     label: 'Room Number',
             //     text: user.roomno,

@@ -1,3 +1,4 @@
+import 'package:easydorm/screens/login_signup%20files/signin_screen.dart';
 import 'package:easydorm/student_files/student_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easydorm/reusable_widgets/reusable_widget.dart';
@@ -172,8 +173,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               password: _passwordTextController.text)
                           .then((value) {
                         print("Created New Account");
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Student()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignInScreen()));
                       }).onError((error, stackTrace) {
                         print("Error ${error.toString()}");
                       });
