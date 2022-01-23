@@ -19,12 +19,6 @@ Hola Everyone, This is team The Enemies of Syntax which consists of 3 people of 
 <br />Rucha Gavaskar (Flutter Developer) : https://github.com/ctrlv21
 
 
-# Case Study: Bulk – Community group-buying app for products
-
-So about our app easyDorms, everything mentioned below is all you need to know about this.
-
-Now-a-days small businesses are getting laid all over the market. People from different age groups are opening their businesses and flourishing in no time. They are so determined to do something in their life which ultimately makes them millennials since day1. But there is even discrimination or u can say injustice going on with a lot of undeserving people. This makes it harder for them to grow and compete. So to resolve this issue, We are here to present all you guys with this app called easyDorms. 
-
 ## Features
 
 - [x] 3 modules, namely a college admin, a warden and students
@@ -74,6 +68,9 @@ App preview:
 ![14](https://user-images.githubusercontent.com/80118978/150666394-44956c96-573d-443d-bf8c-686b57011f6b.jpeg)
 ![15](https://user-images.githubusercontent.com/80118978/150666395-2772e83a-2713-4c9d-b51e-7f010d0ba764.jpeg)
 
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+</p>
 
 <h3 align="left">Languages and Tools:</h3>
-<
+<p align="left"> <a href="https://dart.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="dart" width="40" height="40"/> </a> <a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a> <a href="https://flutter.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="flutter" width="40" height="40"/> </a> </p>
