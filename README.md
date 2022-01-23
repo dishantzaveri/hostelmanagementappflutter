@@ -60,7 +60,7 @@ Benefits of Approaching us
 App preview:
 
 <p float="left">
-  <img src="https://user-images.githubusercontent.com/88030979/146878223-6afddafc-f093-42b2-b908-42d656ca586d.jpeg" width="100" />
+  <img src="![1](https://user-images.githubusercontent.com/80118978/150666241-90974a94-f57e-49b5-9398-48671462d12d.jpeg)" width="100" />
   <img src="https://user-images.githubusercontent.com/88030979/146878265-5a3190b5-114f-4848-a4e3-da8693666454.jpeg" width="100" />
  <img src="https://user-images.githubusercontent.com/88030979/146878480-7b2abeb3-c6b4-45aa-86c1-7b1b777fb03d.jpeg" width="100" />
  <img src="https://user-images.githubusercontent.com/88030979/146878553-c4aae2ea-3e0f-4c16-b179-09ac1146d86d.jpeg" width="100" />
@@ -74,8 +74,6 @@ App preview:
  <img src="https://user-images.githubusercontent.com/88030979/146878648-78d31498-7458-48ce-aee3-c744cc903190.jpeg" width="100" />
 </p>
 
-
-https://user-images.githubusercontent.com/88030979/146879354-4d33f324-1ee7-430b-b8c6-78cff012d93a.mp4
 
 <p align="left">
 </p>
