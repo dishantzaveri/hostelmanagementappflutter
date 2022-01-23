@@ -1,24 +1,23 @@
 # easyDorms
-
-"Hostel Management System"  -> Hostel management system is designed to manage all hostel activities like hostel admissions, fees, room, mess allotment, hostel stores & generates related reports for smooth transactions. It is also used to manage monthly mess bill calculation, hostel staff payroll, student certificates, etc. The hostel management system was created to automate the hostel's
-functions. The goal of the hostel management system is to efficiently carry out hostel
-activities. The system will assist staff in saving student records, determining which
-rooms are vacant, billing/ordering in the mess, online hostel fee payments,
-attendance and timing information for each student, as well as their room numbers
-and hostel details, making it almost effortless for wardens to run hostels. This system
-will also assist in keeping track of new and existing students' records.
-The goal of creating this system is to automate manual labour and make it
-simple to assign students to appropriate hostels based on their registration numbers.
+"Hostel Management System"  -> A Hostel management system is a system designed to manage all hostel related activities like hostel admissions, fees, room, mess allotment, hostel stores & generates related reports for smooth transactions. It is also used to manage monthly mess bill calculation, hostel staff payroll, student certificates, etc. The hostel management system was created to automate the hostel's functions. The goal of the hostel management system is to efficiently carry out hostel activities. The system will assist staff in saving student records, determining which rooms are vacant, billing/ordering in the mess, online hostel fee payments,attendance and timing information for each student, as well as their room numbers and hostel details, making it almost effortless for wardens to run hostels. This system will also assist in keeping track of new and existing students' records.
+The goal of creating this system is to automate manual labour and make it a bit less tedious.
 
 # Introduction
 
-Hola Everyone, This is team The Enemies of Syntax which consists of 3 people of the app stack.
+Hi Everyone!This is "The Enemies of Syntax" and we have three memebers:
 # Contributors :
 <br />Dishant Zaveri (Flutter Developer) : https://github.com/dishantzaveri
 <br />Prathmesh Ghatol (Flutter Developer) : https://github.com/INSAEN
 <br />Rucha Gavaskar (Flutter Developer) : https://github.com/ctrlv21
 
 
+# Case Study: A seamless hostel management experience for users:
+So here's everything you need to know about our app easydorms
+
+'easydorms' is your answer to EVERYTHING related to hostels. Be it managing student's data, editing it or keeping the bills for the Administrator or paying your own bills and keeping a track of your attendance for students. WE. Have. It. All. 
+Apart from that our feature to report any miscrepancies in the hostel help in making the hostel environment and bit safer and inclusive. 
+No more worrying about unpaid bills :) Our seamless payment integration allows the student to check if they have pending fees or mess bills and clear them off in an instant using online transaction which supports various payment methods. No more long queues at the admins office. 
+In short, if you're looking for a great experience hosteling, easydorms is your way.
 ## Features
 
 - [x] 3 modules, namely a college admin, a warden and students
@@ -49,6 +48,9 @@ Benefits of Approaching us
 <br /> ->Unique features
 <br /> ->Good UI.
 
+
+# Overcoming The Challenges — Solution Overview
+App preview:
 
 # Overcoming The Challenges — Solution Overview
 App preview:
