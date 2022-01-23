@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:easydorm/constants.dart';
 
@@ -15,39 +16,72 @@ class _ComplaintState extends State<Complaint> {
 
   final formKey = GlobalKey<FormState>();
   String username = '';
-  late final TextEditingController controller;
-  @override
-  void initState() {
-    super.initState();
-    controller = TextEditingController(text: username);
-  }
-
+  TextEditingController name_controller = TextEditingController();
+  TextEditingController controller = TextEditingController();
+  TextEditingController desc_controller = TextEditingController();
   @override
   void dispose() {
     controller.dispose();
     super.dispose();
   }
 
-  Widget buildName() => Container(
-        padding: EdgeInsets.all(20),
-        decoration: BoxDecoration(),
-        child: TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-            labelText: 'Complaint',
-            labelStyle: TextStyle(
-              color: whiteColor,
-              fontFamily: "Oxygen",
-              fontSize: 22,
+  Widget buildName() => Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Name',
+                labelStyle: TextStyle(
+                  color: whiteColor,
+                  fontFamily: "Oxygen",
+                  fontSize: 17,
+                ),
+              ),
+              onChanged: (value) => setState(() => username = value),
+              controller: name_controller,
             ),
           ),
-          onChanged: (value) => setState(() => username = value),
-          controller: controller,
-        ),
+          Container(
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Complaint',
+                labelStyle: TextStyle(
+                  color: whiteColor,
+                  fontFamily: "Oxygen",
+                  fontSize: 17,
+                ),
+              ),
+              onChanged: (value) => setState(() => username = value),
+              controller: controller,
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Description',
+                labelStyle: TextStyle(
+                  color: whiteColor,
+                  fontFamily: "Oxygen",
+                  fontSize: 17,
+                ),
+              ),
+              onChanged: (value) => setState(() => username = value),
+              controller: desc_controller,
+            ),
+          ),
+        ],
       );
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference complaints =
+        FirebaseFirestore.instance.collection('Complaints');
     return Scaffold(
       backgroundColor: primaryPurple,
       extendBodyBehindAppBar: true,
@@ -75,6 +109,25 @@ class _ComplaintState extends State<Complaint> {
             children: [
               buildName(),
               SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () {
+                  complaints
+                      .add({
+                        'Name': name_controller.text,
+                        'title': controller.text,
+                        'desc': desc_controller.text
+                      })
+                      .then((value) => print("Complaint added"))
+                      .catchError((error) => print("Something went wrong"));
+                },
+                child: Text("Submit",
+                    style: TextStyle(
+                        fontFamily: "Oxygen", fontSize: 18, color: greyColor)),
+                style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    primary: whiteColor),
+              )
               //button//
             ],
           )
