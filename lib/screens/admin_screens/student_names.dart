@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easydorm/constants.dart';
 import 'package:easydorm/screens/admin_screens/student_data.dart';
+import 'package:easydorm/screens/nav_admin.dart';
 import 'package:easydorm/screens/warden_screens/warden_student_edit.dart';
 import 'package:flutter/material.dart';
 
@@ -40,7 +41,7 @@ class _StudentNameState extends State<StudentName> {
     CollectionReference students1 =
         FirebaseFirestore.instance.collection('Students');
     return Scaffold(
-        drawer: Navigation(),
+        drawer: NavAdmin(),
         appBar: AppBar(
           centerTitle: true,
           title: Text(

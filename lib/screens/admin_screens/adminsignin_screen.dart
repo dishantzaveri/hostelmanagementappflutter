@@ -17,65 +17,90 @@ class AdminSignInScreen extends StatefulWidget {
 class _AdminSignInScreenState extends State<AdminSignInScreen> {
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
+  Future<bool> _onWillPop() async {
+    return (await showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Are you sure?'),
+            content: Text('Do you want to exit an App'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text('No'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: Text('Yes'),
+              ),
+            ],
+          ),
+        )) ??
+        false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [primaryPurple, Color(0xFF4527A0)])),
-        child: SingleChildScrollView(
-          physics: AlwaysScrollableScrollPhysics(),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 120),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  "Admin",
-                  style: TextStyle(
-                    fontFamily: "Oxygen",
-                    color: whiteColor,
-                    fontSize: 30,
-                  ),
+    return WillPopScope(
+        child: Scaffold(
+          body: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [primaryPurple, Color(0xFF4527A0)])),
+            child: SingleChildScrollView(
+              physics: AlwaysScrollableScrollPhysics(),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 120),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Admin",
+                      style: TextStyle(
+                        fontFamily: "Oxygen",
+                        color: whiteColor,
+                        fontSize: 30,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    reusableTextField("Enter Email", Icons.person_outline,
+                        false, _emailTextController),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    reusableTextField("Enter Password", Icons.lock_outline,
+                        true, _passwordTextController),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    forgetPassword(context),
+                    firebaseUIButton(context, "Sign In", () {
+                      FirebaseAuth.instance
+                          .signInWithEmailAndPassword(
+                              email: _emailTextController.text,
+                              password: _passwordTextController.text)
+                          .then((value) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => StudentName()));
+                      }).onError((error, stackTrace) {
+                        print("Error ${error.toString()}");
+                      });
+                    }),
+                    // signUpOption()
+                  ],
                 ),
-                const SizedBox(
-                  height: 30,
-                ),
-                reusableTextField("Enter Email", Icons.person_outline, false,
-                    _emailTextController),
-                const SizedBox(
-                  height: 20,
-                ),
-                reusableTextField("Enter Password", Icons.lock_outline, true,
-                    _passwordTextController),
-                const SizedBox(
-                  height: 5,
-                ),
-                forgetPassword(context),
-                firebaseUIButton(context, "Sign In", () {
-                  FirebaseAuth.instance
-                      .signInWithEmailAndPassword(
-                          email: _emailTextController.text,
-                          password: _passwordTextController.text)
-                      .then((value) {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => StudentName()));
-                  }).onError((error, stackTrace) {
-                    print("Error ${error.toString()}");
-                  });
-                }),
-                // signUpOption()
-              ],
+              ),
             ),
           ),
         ),
-      ),
-    );
+        onWillPop: _onWillPop);
   }
 
   // Row signUpOption() {
