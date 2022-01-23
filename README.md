@@ -59,20 +59,20 @@ Benefits of Approaching us
 # Overcoming The Challenges — Solution Overview
 App preview:
 
-<p float="left">
-  <img src="![1](https://user-images.githubusercontent.com/80118978/150666241-90974a94-f57e-49b5-9398-48671462d12d.jpeg)" width="100" />
-  <img src="https://user-images.githubusercontent.com/88030979/146878265-5a3190b5-114f-4848-a4e3-da8693666454.jpeg" width="100" />
- <img src="https://user-images.githubusercontent.com/88030979/146878480-7b2abeb3-c6b4-45aa-86c1-7b1b777fb03d.jpeg" width="100" />
- <img src="https://user-images.githubusercontent.com/88030979/146878553-c4aae2ea-3e0f-4c16-b179-09ac1146d86d.jpeg" width="100" />
-</p>
-
-
-<p float="left">
- <img src="https://user-images.githubusercontent.com/88030979/146878562-7cd83955-24fc-4fc6-b4cd-3543909c186d.jpeg" width="100" />
- <img src="https://user-images.githubusercontent.com/88030979/146878620-1cc1c6eb-54f8-4e57-8dc0-9df2b03ca5aa.jpeg" width="100" />
- <img src="https://user-images.githubusercontent.com/88030979/146878634-7eb6a484-ebf4-4198-8061-01005c89174f.jpeg" width="100" />
- <img src="https://user-images.githubusercontent.com/88030979/146878648-78d31498-7458-48ce-aee3-c744cc903190.jpeg" width="100" />
-</p>
+![1](https://user-images.githubusercontent.com/80118978/150666369-398bd251-52ba-4233-a0fd-25a8c997b67f.jpeg)
+![2](https://user-images.githubusercontent.com/80118978/150666370-214142df-d39e-4c22-a3b3-20a9d4645780.jpeg)
+![3](https://user-images.githubusercontent.com/80118978/150666372-6bc5ea78-5ce5-4436-b2b5-eaf3a81511cb.jpeg)
+![4](https://user-images.githubusercontent.com/80118978/150666374-25c1af47-3412-465d-9068-f4af3ad1c622.jpeg)
+![6](https://user-images.githubusercontent.com/80118978/150666375-075898a5-339b-4cf3-a28c-baf825d0fcf2.jpeg)
+![7](https://user-images.githubusercontent.com/80118978/150666377-298585a6-8cd9-445a-9a1e-5df0023db034.jpeg)
+![8](https://user-images.githubusercontent.com/80118978/150666382-77da5c9a-3f8d-41f9-a003-7b16c29c1c61.jpeg)
+![9](https://user-images.githubusercontent.com/80118978/150666387-0ba51bed-8936-4c46-a653-2d400bdf9420.jpeg)
+![10](https://user-images.githubusercontent.com/80118978/150666388-a127f4e0-9073-4a2d-912e-0e64a9a50ecf.jpeg)
+![11](https://user-images.githubusercontent.com/80118978/150666389-a1e17c32-74d3-418e-a6f2-f51ab1cb76e8.jpeg)
+![12](https://user-images.githubusercontent.com/80118978/150666390-1333e7b5-749e-4ccd-86af-3f47b117b78f.jpeg)
+![13](https://user-images.githubusercontent.com/80118978/150666391-7c26f8f9-9971-44d1-b026-cfd2810895da.jpeg)
+![14](https://user-images.githubusercontent.com/80118978/150666394-44956c96-573d-443d-bf8c-686b57011f6b.jpeg)
+![15](https://user-images.githubusercontent.com/80118978/150666395-2772e83a-2713-4c9d-b51e-7f010d0ba764.jpeg)
 
 
 <p align="left">
