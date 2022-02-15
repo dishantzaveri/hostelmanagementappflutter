@@ -52,9 +52,6 @@ Benefits of Approaching us
 # Overcoming The Challenges — Solution Overview
 App preview:
 
-# Overcoming The Challenges — Solution Overview
-App preview:
-
 ![1](https://user-images.githubusercontent.com/80118978/150666369-398bd251-52ba-4233-a0fd-25a8c997b67f.jpeg)
 ![2](https://user-images.githubusercontent.com/80118978/150666370-214142df-d39e-4c22-a3b3-20a9d4645780.jpeg)
 ![3](https://user-images.githubusercontent.com/80118978/150666372-6bc5ea78-5ce5-4436-b2b5-eaf3a81511cb.jpeg)
